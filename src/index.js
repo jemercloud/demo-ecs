@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
   logger.info(`${req.method} ${req.path}`);
-  res.send('<h1>Hola desde un contenedor en ECS!</h1>');
+  res.send('<h1>Hola desde otro contenedor en ECS!</h1>');
 });
 
 app.get('/management/health', (req, res) => {
