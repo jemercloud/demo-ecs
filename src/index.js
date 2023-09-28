@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('./utils/Logger');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
   logger.info(`${req.method} ${req.path}`);
