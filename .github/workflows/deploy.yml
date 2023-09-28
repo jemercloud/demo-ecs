@@ -58,13 +58,13 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ env.TD_FILE_NAME }}
-          container-name: weco-qa-api-container
+          container-name: demoapp-test-api-container
           image: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_IMAGE_NAME }}:${{ github.run_number }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: weco-back-qa-Service-d5znsmNy85uw
-          cluster: weco-qa-cluster
+          service: service-demo-ecs-Service-qidcUpcqFhmZ
+          cluster: demoapp-test-cluster
           wait-for-service-stability: true
