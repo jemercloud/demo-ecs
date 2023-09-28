@@ -51,7 +51,7 @@ jobs:
           provenance: false
 
       - name: get task definition
-        run: aws ecs describe-task-definition --task-definition weco-qa-api-td --query taskDefinition > ${{ env.TD_FILE_NAME }}
+        run: aws ecs describe-task-definition --task-definition demoapp-test-api-td --query taskDefinition > ${{ env.TD_FILE_NAME }}
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
