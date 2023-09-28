@@ -14,6 +14,11 @@ app.get('*', (req, res) => {
   res.status(404).send('<h1>Page not found</h1>');
 });
 
+app.get('/management/health', (req, res) => {
+  logger.info(`${req.method} ${req.path}`);
+  res.send('ok');
+});
+
 app.listen(port, () => {
   logger.info(`process id: ${process.pid}`);
   logger.info(`server listening on port ${port}`);
