@@ -2,16 +2,17 @@ name: Deploy
 on:
   push:
     branches:
-      - 'main'
+      - 'test'
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Google Chat Notification
+        uses: Co-qn/google-chat-notification@releases/v1
         with:
-          node-version: 18
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
+          name: Build
+          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          status: ${{ job.status }}
+        if: always()
