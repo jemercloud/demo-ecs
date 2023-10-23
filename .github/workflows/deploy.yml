@@ -11,7 +11,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      ECR_IMAGE_NAME: demo-ecs
+      ECR_IMAGE_NAME: hola-mundo-node
       AWS_REGION: us-east-1
       ROLE: arn:aws:iam::214297756712:role/CICDRole
       TD_FILE_NAME: task-definition.json
